@@ -1,0 +1,507 @@
+/* ===== MAIN CONTAINER ===== */
+.shared-login-main {
+    background-image: url("../../assets/images/coverImage.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.shared-login-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 0;
+}
+
+/* ===== PRIMARY CONTAINER ===== */
+.shared-login-container {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 1;
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shared-login-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== LOGIN CARD ===== */
+.shared-login-card {
+    padding: 50px 40px;
+    background: transparent;
+}
+
+/* ===== HEADER ===== */
+.shared-login-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.shared-login-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.shared-login-logo-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #f8720a 0%, #ff8c42 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+}
+
+.shared-login-logo-text {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    color: #000000;
+    letter-spacing: -0.5px;
+}
+
+.shared-login-subtitle {
+    color: #2f3135;
+    text-align: center;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* ===== ALERT MESSAGES ===== */
+.shared-alert {
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.shared-alert-error {
+    background: #fee;
+    border: 1px solid #fcc;
+    color: #c00;
+}
+
+.shared-alert-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.shared-alert-text {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* ===== LOGIN FORM ===== */
+.shared-login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.shared-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.shared-form-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.shared-form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 🔴 FIXED: Remove browser default border and outline */
+.shared-form-input {
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;  /* Custom border */
+    outline: none !important;     /* Remove default outline */
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #fff;
+    color: #000000;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-appearance: none;     /* Remove default appearance */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Remove any browser default focus styles */
+.shared-form-input:focus {
+    border-color: #f8720a !important;  /* Orange border on focus */
+    outline: none !important;           /* Remove outline */
+    box-shadow: 0 0 0 3px rgba(248, 114, 10, 0.1) !important;  /* Custom shadow */
+    transform: translateY(-1px);
+}
+
+/* Remove Firefox inner border */
+.shared-form-input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/* Remove Chrome autofill background */
+.shared-form-input:-webkit-autofill,
+.shared-form-input:-webkit-autofill:hover,
+.shared-form-input:-webkit-autofill:focus,
+.shared-form-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: #000000 !important;
+    caret-color: #000000;
+}
+
+.shared-form-input::placeholder {
+    font-size: 14px;
+    color: #686868;
+}
+
+.shared-form-input:disabled {
+    background: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* ===== PASSWORD FIELD ===== */
+.shared-password-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.shared-password-input {
+    padding-right: 50px;
+}
+
+.shared-password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 4px 8px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none !important;  /* Remove button outline */
+}
+
+.shared-password-toggle:focus-visible {
+    outline: 2px solid #f8720a !important;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.shared-password-toggle:hover {
+    color: #f8720a;
+}
+
+.shared-password-toggle:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* ===== FORGOT PASSWORD LINK ===== */
+.shared-forgot-password {
+    background: transparent;
+    border: none;
+    color: #f8720a;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    outline: none !important;  /* Remove button outline */
+}
+
+.shared-forgot-password:focus-visible {
+    outline: 2px solid #f8720a !important;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.shared-forgot-password:hover {
+    color: #e76405;
+    text-decoration: underline;
+}
+
+/* ===== LOGIN BUTTON ===== */
+.shared-login-button {
+    margin-top: 10px;
+    padding: 16px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #f8720a 0%, #ff8c42 100%);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    outline: none !important;  /* Remove button outline */
+}
+
+.shared-login-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.shared-login-button:hover {
+    background: linear-gradient(135deg, #e76405 0%, #f8720a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(248, 114, 10, 0.3);
+}
+
+.shared-login-button:hover::before {
+    left: 100%;
+}
+
+.shared-login-button:active {
+    transform: translateY(0);
+}
+
+.shared-login-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.shared-login-button:focus-visible {
+    outline: 2px solid #fff !important;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(248, 114, 10, 0.5);
+}
+
+.shared-login-button-loading {
+    position: relative;
+}
+
+.shared-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== FOOTER ===== */
+.shared-login-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eaeaea;
+    text-align: center;
+}
+
+.shared-footer-text {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.shared-support-link {
+    color: #f8720a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    outline: none !important;
+}
+
+.shared-support-link:focus-visible {
+    outline: 2px solid #f8720a !important;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.shared-support-link:hover {
+    color: #e76405;
+    text-decoration: underline;
+}
+
+/* ===== BACKGROUND SHAPES ===== */
+.shared-login-bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(248, 114, 10, 0.1) 0%, rgba(255, 140, 66, 0.05) 100%);
+    z-index: -1;
+}
+
+.shared-login-bg-shape-1 {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    right: -150px;
+}
+
+.shared-login-bg-shape-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -100px;
+    left: -100px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .shared-login-main {
+        padding: 20px 15px;
+    }
+
+    .shared-login-container {
+        max-width: 100%;
+        border-radius: 16px;
+    }
+
+    .shared-login-card {
+        padding: 35px 25px;
+    }
+
+    .shared-login-logo-text {
+        font-size: 24px;
+    }
+
+    .shared-login-logo-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .shared-login-card {
+        padding: 30px 20px;
+    }
+
+    .shared-login-logo-text {
+        font-size: 22px;
+    }
+
+    .shared-login-button {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .shared-form-label-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
+
+/* ===== FOCUS VISIBLE FOR ACCESSIBILITY (but not default) ===== */
+button:focus-visible:not(:focus),
+input:focus-visible:not(:focus),
+select:focus-visible:not(:focus) {
+    outline: none;
+}
+
+/* Only show focus outline when actually using keyboard navigation */
+.js-focus-visible :focus:not(.focus-visible) {
+    outline: none;
+}
+
+/* ===== LOADING STATE ===== */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.loading {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+/* ===== FORM HINT (input အောက်က အသေးလေး) ===== */
+.shared-form-hint {
+    display: block;
+    margin-top: 4px;
+    margin-left: 4px;
+    font-size: 12px;
+    color: #f8720a;            /* လိမ္မော်ရောင် */
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    opacity: 0.85;
+    animation: fadeInHint 0.4s ease-out;
+}
+
+@keyframes fadeInHint {
+    from { opacity: 0; transform: translateY(-2px); }
+    to   { opacity: 0.85; transform: translateY(0); }
+}

@@ -1,0 +1,779 @@
+/* Financial Analytics Page Styles - Updated */
+.financial-analytics-main {
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #fff, #f1f5fe, #fdeaeb);
+    box-sizing: border-box;
+}
+
+/* Updated Header with Back Button */
+.financial-header {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    color: white;
+    position: relative;
+}
+
+.header-top-row {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+.header-center-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: auto;
+    max-width: 60%;
+}
+
+.header-center-content h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    white-space: nowrap;
+}
+
+.header-center-content p {
+    font-size: 1rem;
+    opacity: 0.9;
+    text-align: center;
+}
+
+/* Back Button at Top Left */
+.financial-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(5px);
+
+}
+
+.financial-back-btn:hover {
+    transform: translateY(-2px);
+    color:red;
+}
+
+/* Summary Cards */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.summary-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.total-revenue .summary-icon {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.pending-amount .summary-icon {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.total-paid .summary-icon {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.average-revenue .summary-icon {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.summary-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.summary-content h2 {
+    margin: 0 0 5px 0;
+    font-size: 1.8rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.summary-content p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* Controls Section */
+.controls-section {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.time-range {
+    display: flex;
+    gap: 10px;
+}
+
+.time-range button {
+    padding: 8px 20px;
+    border: 2px solid #e2e8f0;
+    background: white;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.time-range button:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+.time-range button.active {
+    background: #667eea;
+    border-color: #667eea;
+    color: white;
+}
+
+.controls-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.view-type select,
+.filter-type select {
+    padding: 8px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1e293b;
+    background: white;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.view-type select:focus,
+.filter-type select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn-generate,
+.btn-export {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.btn-generate {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+}
+
+.btn-export {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    color: white;
+}
+
+.btn-generate:hover,
+.btn-export:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Charts Section */
+.charts-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.chart-container {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container.large {
+    grid-column: span 2;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.chart-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chart-legend {
+    display: flex;
+    gap: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.legend-item.revenue i {
+    color: #667eea;
+}
+
+.legend-item.shops i {
+    color: #f093fb;
+}
+
+/* Shops Financial Section */
+.shops-financial-section {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.section-header h2 {
+    margin: 0 0 5px 0;
+    font-size: 1.4rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-header p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.shops-table-container {
+    overflow-x: auto;
+}
+
+.shops-financial-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.shops-financial-table thead {
+    background: #f8fafc;
+}
+
+.shops-financial-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #475569;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.shops-financial-table tbody tr {
+    border-bottom: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.shops-financial-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.shops-financial-table tbody tr.selected {
+    background: #e0e7ff;
+}
+
+.shops-financial-table td {
+    padding: 15px;
+}
+
+.shop-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.shop-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.shop-info small {
+    display: block;
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.package-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.package-badge.premium {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.package-badge.standard {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.package-badge.basic {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.revenue-cell {
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.pending-cell {
+    color: #dc2626;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pending-cell .warning {
+    color: #dc2626;
+}
+
+.paid-cell {
+    color: #16a34a;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.paid-cell .success {
+    color: #16a34a;
+}
+
+.btn-receive-payment {
+    padding: 6px 15px;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s;
+}
+
+.btn-receive-payment:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(240, 147, 251, 0.3);
+}
+
+/* Selected Shop Details */
+.selected-shop-details {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.details-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-close {
+    width: 36px;
+    height: 36px;
+    border: 2px solid #e2e8f0;
+    background: white;
+    border-radius: 50%;
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.btn-close:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #dc2626;
+}
+
+.payment-history table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.payment-history th {
+    padding: 12px;
+    text-align: left;
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.payment-history td {
+    padding: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.amount-cell {
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-badge.paid {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.btn-invoice {
+    padding: 6px 15px;
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s;
+}
+
+.btn-invoice:hover {
+    background: #e2e8f0;
+    border-color: #cbd5e1;
+}
+
+.shop-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 2px solid #f1f5f9;
+}
+
+.summary-item {
+    text-align: center;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 10px;
+}
+
+.summary-item h4 {
+    margin: 0 0 10px 0;
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.summary-item h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.summary-item h2.warning {
+    color: #dc2626;
+}
+
+.summary-item h2.success {
+    color: #16a34a;
+}
+
+/* Date Range Section */
+.date-range-section {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.date-range-section h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.1rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.input-group {
+    flex: 1;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #475569;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #1e293b;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn-apply {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+    margin-top: 28px;
+}
+
+.btn-apply:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Back Section at Bottom */
+.back-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    background: #475569;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-back:hover {
+    background: #334155;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(71, 85, 105, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .charts-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-container.large {
+        grid-column: span 1;
+    }
+    
+    .shop-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .financial-header {
+        padding: 20px 15px;
+    }
+    
+    .header-top-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .header-center-content {
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    .header-center-content h1 {
+        white-space: normal;
+        font-size: 1.8rem;
+    }
+    
+    .financial-back-btn {
+        margin-top: -10px;
+        margin-bottom: -50px;
+        align-self: flex-start;
+    }
+    
+    .controls-section {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+    
+    .controls-right {
+        flex-wrap: wrap;
+    }
+    
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .date-range-inputs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-apply {
+        margin-top: 0;
+    }
+}

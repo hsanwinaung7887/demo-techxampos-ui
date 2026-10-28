@@ -1,0 +1,128 @@
+.main {
+    width: 100%;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.05);
+    padding: 5px 100px;
+    box-sizing: border-box;
+    top: 0px;
+    z-index: 1000000;
+    position: sticky;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
+
+/*=========== Logo ============*/
+.left img {
+    width: 130px;
+}
+
+/*============Menu =============*/
+.right ul {
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    transition: 2ms ease;
+}
+.right li {
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+}
+.right li:hover {
+    color: #f8720a;
+}
+.right img {
+    margin-bottom: -5px;
+    width: 30px;
+    cursor: pointer;
+}
+.right select{
+    border: 1px solid #bdbdbd;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+/* ========= Hamburger ========= */
+.shared-menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.shared-menu-icon img {
+    width: 30px;
+    padding: 12px 0px;
+}
+
+.right li.active {
+    color: #f8720a;
+    font-weight: bold;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+    .main {
+        padding: 5px 30px;
+    }
+    /* show hamburger */
+    .shared-menu-icon {
+        display: block;
+    }
+    .container{
+        padding:0px
+    }
+
+    .right {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        overflow: hidden;
+        max-height: 0;               /* hide by default */
+        opacity: 0; 
+        padding: 0px 30px;                 /* fade out */
+        transition: max-height 0.5s ease, opacity 0.3s ease;
+    }
+
+    /* show when open */
+    .right.open {
+        max-height: 500px;
+        opacity: 1;
+    }
+
+    /* vertical menu */
+    .right ul {
+        flex-direction: column;
+        gap: 0;
+        margin: 0 auto;
+        padding: 0px 0px;
+    }
+
+    .right li {
+        width: 100%;
+        padding: 15px 60px;
+        border-bottom: 1px solid #eee;
+    }
+    .right select{
+        width: 100%;
+        padding: 0px 0;
+        border: none;
+        border-radius: 10px;
+    }
+    .right img {
+        width: 30px;
+        padding: 0px 0px;
+        cursor: pointer;
+    }
+}

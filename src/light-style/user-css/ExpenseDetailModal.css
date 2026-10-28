@@ -1,0 +1,361 @@
+/* light-style/user-css/ExpenseDetailModal.css */
+
+.expense-detail-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999999 !important; 
+    padding: 20px;
+}
+
+.expense-detail-modal {
+    background: white;
+    border-radius: 20px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: expenseDetailSlideIn 0.3s ease;
+}
+
+@keyframes expenseDetailSlideIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.expense-detail-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    border-bottom: 2px solid #f1f5f9;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border-radius: 20px 20px 0 0;
+    flex-shrink: 0;
+}
+
+.expense-detail-modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1e293b;
+}
+
+.expense-detail-modal-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #94a3b8;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.expense-detail-modal-close:hover {
+    background: #f1f5f9;
+    color: #ef4444;
+}
+
+.expense-detail-modal-body {
+    padding: 20px 24px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Summary Banner */
+.expense-summary-banner {
+    display: flex;
+    gap: 30px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #fcd34d;
+}
+
+.expense-summary-total,
+.expense-summary-count {
+    display: flex;
+    flex-direction: column;
+}
+
+.expense-summary-label {
+    font-size: 12px;
+    color: #92400e;
+    font-weight: 500;
+}
+
+.expense-summary-amount {
+    font-size: 22px;
+    font-weight: 700;
+    color: #92400e;
+}
+
+.expense-summary-number {
+    font-size: 22px;
+    font-weight: 700;
+    color: #92400e;
+}
+
+/* Category Group */
+.expense-category-group {
+    margin-bottom: 16px;
+}
+
+.expense-category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 4px solid #4361ee;
+    margin-bottom: 8px;
+}
+
+.expense-category-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.expense-category-total {
+    margin-left: auto;
+    font-weight: 700;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.expense-category-count {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* Expense Items */
+.expense-items-list {
+    padding-left: 8px;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.2s;
+}
+
+.expense-item:hover {
+    background: #f8fafc;
+    border-radius: 6px;
+}
+
+.expense-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.expense-item-title {
+    font-weight: 500;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.expense-item-subcategory {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.expense-item-vendor {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.expense-item-description {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 2px;
+    font-style: italic;
+}
+
+.expense-item-meta {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.expense-item-date {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.expense-item-status {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.expense-item-status.status-paid {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.expense-item-status.status-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.expense-item-status.status-cancelled {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.expense-item-amount {
+    font-weight: 700;
+    font-size: 15px;
+    color: #e67e22;
+    margin-left: 16px;
+    white-space: nowrap;
+}
+
+/* Empty State */
+.expense-detail-empty {
+    text-align: center;
+    padding: 40px;
+    color: #94a3b8;
+}
+
+.expense-detail-empty i {
+    font-size: 48px;
+    color: #e2e8f0;
+    margin-bottom: 16px;
+    display: block;
+}
+
+/* Footer */
+.expense-detail-modal-footer {
+    padding: 14px 24px;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    background: #f8fafc;
+    border-radius: 0 0 20px 20px;
+}
+
+.expense-detail-btn-close {
+    padding: 10px 24px;
+    background: #e2e8f0;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.expense-detail-btn-close:hover {
+    background: #cbd5e1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .expense-detail-modal {
+        max-width: 100%;
+        max-height: 95vh;
+        border-radius: 12px;
+    }
+    
+    .expense-detail-modal-header {
+        padding: 14px 16px;
+    }
+    
+    .expense-detail-modal-body {
+        padding: 14px 16px;
+    }
+    
+    .expense-summary-banner {
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 16px;
+    }
+    
+    .expense-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    
+    .expense-item-amount {
+        margin-left: 0;
+    }
+}
+/* light-style/user-css/ExpenseDetailModal.css - အဆုံးမှာ ထည့်ပါ */
+
+/* ===== Header Actions ===== */
+.expense-detail-modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ===== Report Button ===== */
+.expense-detail-report-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    color: white;
+}
+
+.expense-detail-report-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+}
+
+.expense-detail-report-btn i {
+    font-size: 14px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .expense-detail-modal-actions {
+        gap: 6px;
+    }
+    
+    .expense-detail-report-btn {
+        padding: 4px 10px;
+        font-size: 11px;
+    }
+    
+    .expense-detail-report-btn i {
+        font-size: 12px;
+    }
+}

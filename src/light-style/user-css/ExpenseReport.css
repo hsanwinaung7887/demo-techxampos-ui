@@ -1,0 +1,590 @@
+/* light-style/user-css/ExpenseReport.css */
+
+/* ============================================================
+   MODAL OVERLAY
+   ============================================================ */
+.expense-report-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999999 !important;
+    padding: 0;
+    margin: 0;
+}
+
+/* ============================================================
+   MODAL CONTAINER
+   ============================================================ */
+.expense-report-modal {
+    background: white;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    animation: expenseReportSlideIn 0.3s ease;
+}
+
+@keyframes expenseReportSlideIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.expense-report-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 2px solid #f1f5f9;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    flex-shrink: 0;
+}
+
+.expense-report-modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1e293b;
+}
+
+.expense-report-modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.expense-report-download-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    color: white;
+}
+
+.expense-report-download-btn.pdf {
+    background: #e74c3c;
+}
+
+.expense-report-download-btn.pdf:hover:not(:disabled) {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+.expense-report-download-btn.png {
+    background: #27ae60;
+}
+
+.expense-report-download-btn.png:hover:not(:disabled) {
+    background: #2ecc71;
+    transform: translateY(-2px);
+}
+
+.expense-report-download-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.expense-report-close-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #94a3b8;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.expense-report-close-btn:hover {
+    background: #f1f5f9;
+    color: #ef4444;
+}
+
+/* ============================================================
+   FILTER SECTION
+   ============================================================ */
+.expense-report-filter-section {
+    padding: 12px 24px;
+    background: #f8fafc;
+    border-bottom: 1px solid #eef2f6;
+    flex-shrink: 0;
+}
+
+.expense-report-filter-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.expense-report-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.expense-report-filter-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.expense-report-date-input {
+    padding: 6px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 13px;
+    background: white;
+    color: #1e293b;
+    transition: border-color 0.2s;
+}
+
+.expense-report-date-input:focus {
+    outline: none;
+    border-color: #e67e22;
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+}
+
+.expense-report-filter-btn {
+    padding: 6px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+.expense-report-filter-btn.apply {
+    background: #e67e22;
+    color: white;
+}
+
+.expense-report-filter-btn.apply:hover {
+    background: #d35400;
+}
+
+.expense-report-filter-btn.reset {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.expense-report-filter-btn.reset:hover {
+    background: #cbd5e1;
+}
+
+.expense-report-filter-info {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ============================================================
+   MODAL BODY (Scrollable)
+   ============================================================ */
+.expense-report-modal-body {
+    padding: 20px 24px;
+    overflow-y: auto;
+    flex: 1;
+    max-height: calc(100vh - 200px);
+}
+
+/* ============================================================
+   REPORT HEADER
+   ============================================================ */
+.expense-report-header {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e67e22;
+}
+
+.expense-report-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.expense-report-period {
+    font-size: 14px;
+    font-weight: 400;
+    color: #e67e22;
+}
+
+.expense-report-date {
+    margin: 4px 0 0 0;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.expense-report-divider {
+    margin-top: 8px;
+    height: 2px;
+    background: linear-gradient(to right, #e67e22, transparent);
+}
+
+/* ============================================================
+   SUMMARY
+   ============================================================ */
+.expense-report-summary {
+    display: flex;
+    gap: 30px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #fcd34d;
+}
+
+.expense-report-summary-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.expense-report-summary-label {
+    font-size: 12px;
+    color: #92400e;
+    font-weight: 500;
+}
+
+.expense-report-summary-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #92400e;
+}
+
+/* ============================================================
+   MONTH GROUP (Each month = one page in PDF)
+   ============================================================ */
+.expense-month-group {
+    margin-bottom: 30px;
+    page-break-after: always;
+    border-bottom: 2px dashed #e2e8f0;
+    padding-bottom: 20px;
+}
+
+.expense-month-group:last-child {
+    page-break-after: auto;
+    border-bottom: none;
+}
+
+.expense-month-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 16px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid #e67e22;
+}
+
+.expense-month-title {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.expense-month-title i {
+    color: #e67e22;
+}
+
+.expense-month-total {
+    margin-left: auto;
+    font-weight: 700;
+    font-size: 15px;
+    color: #e67e22;
+}
+
+.expense-month-count {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* ============================================================
+   CATEGORY GROUP
+   ============================================================ */
+.expense-report-category-group {
+    margin-bottom: 12px;
+}
+
+.expense-report-category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 14px;
+    background: #f8fafc;
+    border-radius: 6px;
+    border-left: 4px solid #4361ee;
+    margin-bottom: 6px;
+}
+
+.expense-report-category-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.expense-report-category-total {
+    margin-left: auto;
+    font-weight: 700;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.expense-report-category-count {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* ============================================================
+   ITEMS LIST
+   ============================================================ */
+.expense-report-items-list {
+    padding-left: 8px;
+}
+
+.expense-report-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.2s;
+}
+
+.expense-report-item:hover {
+    background: #f8fafc;
+    border-radius: 4px;
+}
+
+.expense-report-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.expense-report-item-title {
+    font-weight: 500;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.expense-report-item-subcategory {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.expense-report-item-vendor {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.expense-report-item-description {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 2px;
+    font-style: italic;
+}
+
+.expense-report-item-meta {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.expense-report-item-date {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.expense-report-item-status {
+    font-size: 10px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.expense-report-item-status.status-paid {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.expense-report-item-status.status-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.expense-report-item-status.status-cancelled {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.expense-report-item-amount {
+    font-weight: 700;
+    font-size: 15px;
+    color: #e67e22;
+    margin-left: 16px;
+    white-space: nowrap;
+}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+.expense-report-empty {
+    text-align: center;
+    padding: 60px;
+    color: #94a3b8;
+}
+
+.expense-report-empty i {
+    font-size: 64px;
+    color: #e2e8f0;
+    margin-bottom: 16px;
+    display: block;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.expense-report-footer {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.expense-report-modal-footer {
+    padding: 14px 24px;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    background: #f8fafc;
+}
+
+.expense-report-btn-close {
+    padding: 10px 28px;
+    background: #e2e8f0;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.expense-report-btn-close:hover {
+    background: #cbd5e1;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+    .expense-report-modal-header {
+        padding: 12px 16px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .expense-report-modal-header h2 {
+        font-size: 17px;
+    }
+    
+    .expense-report-filter-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .expense-report-filter-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .expense-report-filter-btn {
+        justify-content: center;
+    }
+    
+    .expense-report-modal-body {
+        padding: 14px 16px;
+        max-height: calc(100vh - 260px);
+    }
+    
+    .expense-report-summary {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .expense-report-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    
+    .expense-report-item-amount {
+        margin-left: 0;
+    }
+    
+    .expense-month-header {
+        flex-wrap: wrap;
+    }
+    
+    .expense-month-total {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .expense-report-download-btn {
+        padding: 4px 10px;
+        font-size: 11px;
+    }
+    
+    .expense-report-download-btn i {
+        font-size: 12px;
+    }
+}

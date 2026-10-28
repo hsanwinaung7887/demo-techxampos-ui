@@ -1,0 +1,449 @@
+/* OTP Container */
+.shared-otp-main {
+    background-image: url("../../assets/images/coverImage.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    position: relative;
+}
+.shared-otp-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 0;
+}
+.shared-otp-container{
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* OTP Card */
+.shared-otp-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Header */
+.shared-otp-header {
+  text-align: center;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.shared-otp-back-button {
+  position: absolute;
+  left: -30px;
+  top: -30px;
+  background: none;
+  border: none;
+  color: rgb(65, 65, 65);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.shared-otp-back-button:hover {
+  background-color: #f5f3ff;
+}
+
+.shared-otp-back-button i {
+  font-size: 12px;
+}
+
+.shared-otp-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.shared-otp-logo-icon {
+  font-size: 32px;
+  color: #f8720a;
+}
+
+.shared-otp-logo-icon i {
+  font-size: 32px;
+}
+
+.shared-otp-logo-text {
+  font-size: 28px;
+  font-weight: 700;
+  background: #f8720a;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shared-otp-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.shared-otp-subtitle i {
+  font-size: 14px;
+  color: rgb(65, 65, 65);
+}
+
+.shared-otp-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Alert Styles */
+.shared-otp-alert {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.shared-otp-alert-error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.shared-otp-alert-success {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+}
+
+.shared-otp-alert-icon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.shared-otp-alert-icon i {
+  font-size: 18px;
+}
+
+.shared-otp-alert-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* OTP Form */
+.shared-otp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.shared-otp-inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.shared-otp-instruction {
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.shared-otp-instruction i {
+  font-size: 14px;
+  color: rgb(65, 65, 65);
+}
+
+.shared-otp-inputs-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.shared-otp-input {
+  width: 56px;
+  height: 64px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: rgb(136, 136, 136);
+  background: white;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.shared-otp-input:focus {
+  border-color: #f8720a;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.shared-otp-input:disabled {
+  background-color: #f9fafb;
+  cursor: not-allowed;
+}
+
+.shared-otp-input::placeholder {
+  color: #d1d5db;
+}
+
+/* Timer Section */
+.shared-otp-timer-section {
+  text-align: center;
+}
+
+.shared-otp-timer {
+  font-size: 14px;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.shared-otp-timer i {
+  font-size: 14px;
+  color: rgb(65, 65, 65);
+}
+
+.shared-otp-timer-count {
+  font-weight: 600;
+  color: #dc2626;
+  font-feature-settings: "tnum";
+}
+
+.shared-otp-resend-button {
+  background: #1f5ae0;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.shared-otp-resend-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+}
+
+.shared-otp-resend-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.shared-otp-resend-button-loading {
+  cursor: wait;
+}
+
+.shared-otp-resend-button i {
+  font-size: 14px;
+}
+
+/* Verify Button */
+.shared-otp-verify-button {
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #2059db 0%, #16a6f2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.shared-otp-verify-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+}
+
+.shared-otp-verify-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.shared-otp-verify-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+}
+
+.shared-otp-verify-button-loading {
+  cursor: wait;
+}
+
+.shared-otp-verify-button i {
+  font-size: 16px;
+}
+
+/* Spinner */
+.shared-otp-spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Footer */
+.shared-otp-footer {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.shared-otp-footer-text {
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.shared-otp-footer-text i {
+  font-size: 12px;
+  color: #f8720a;
+}
+
+.shared-otp-contact-support {
+  background: none;
+  border: none;
+  color: #f8720a;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shared-otp-contact-support:hover {
+  color: #f8720a;
+  background-color: #f5f3ff;
+}
+
+.shared-otp-contact-support i {
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 520px) {
+  .shared-otp-container {
+    padding: 16px;
+  }
+  
+  .shared-otp-card {
+    padding: 32px 24px;
+  }
+  
+  .shared-otp-logo {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .shared-otp-logo-text {
+    font-size: 24px;
+  }
+  
+  .shared-otp-input {
+    width: 48px;
+    height: 56px;
+    font-size: 20px;
+  }
+  
+  .shared-otp-inputs-group {
+    gap: 8px;
+  }
+  
+  .shared-otp-back-button {
+    position: relative;
+    justify-content: center;
+    margin-bottom: 16px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+  
+  .shared-otp-subtitle {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .shared-otp-footer-text {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shared-otp-input {
+    width: 42px;
+    height: 50px;
+    font-size: 18px;
+  }
+  .shared-otp-inputs-group {
+    gap: 6px;
+  }
+}

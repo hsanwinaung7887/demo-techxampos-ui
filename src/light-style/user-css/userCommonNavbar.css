@@ -1,0 +1,1293 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* Wifi icon styles */
+.icon-btn.wifi {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Online state - RED with animation */
+.icon-btn.wifi.online {
+  border-color: #ef4444; /* Red border */
+  background-color: #fef2f2; /* Light red background */
+}
+
+.icon-btn.wifi.online img {
+  filter: brightness(0) saturate(100%) invert(37%) sepia(93%) saturate(1352%) hue-rotate(336deg) brightness(91%) contrast(96%); /* Red color */
+}
+
+/* Online with pulsing animation */
+.icon-btn.wifi.online::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgba(239, 68, 68, 0.3); /* Red with transparency */
+  animation: pulse-red 2s infinite;
+  z-index: 0;
+}
+
+@keyframes pulse-red {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+}
+/* Menu Icons Styling */
+.side-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.menu-icon {
+  color: #4b5563;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.menu-icon {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 20px !important;
+  min-width: 20px !important;
+  height: auto !important;
+  font-size: 16px !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  margin-right: 12px !important;
+  color: #4b5563 !important;
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "FontAwesome" !important;
+  font-weight: 900 !important;
+  font-style: normal !important;
+  flex-shrink: 0 !important;
+  overflow: visible !important;
+}
+
+.side-menu-item:hover .menu-icon {
+  color: #2563eb;
+}
+
+.side-menu-item.active .menu-icon {
+  color: #3b82f6;
+}
+
+.side-menu-item.logout .menu-icon {
+  color: #e11d48;
+}
+
+.side-menu-item.logout:hover .menu-icon {
+  color: #b91c1c;
+}
+/* Offline state - gray with cross */
+.icon-btn.wifi.offline {
+  border-color: #d1d5db;
+  background-color: #f3f4f6;
+}
+
+.icon-btn.wifi.offline img {
+  filter: grayscale(100%) brightness(0.7);
+}
+
+.icon-btn.wifi.offline::after {
+  content: "✕";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: #6b7280; /* Gray for offline */
+  color: white;
+  font-size: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Online hover effect - Darker Red */
+.icon-btn.wifi.online:hover {
+  background-color: #dc2626; /* Darker red */
+  border-color: #b91c1c; /* Even darker red */
+}
+
+.icon-btn.wifi.online:hover img {
+  filter: brightness(0) saturate(100%) invert(100%);
+}
+
+.icon-btn.wifi.online:hover::before {
+  background-color: rgba(255, 255, 255, 0.3);
+  animation: pulse-red-hover 1.5s infinite;
+}
+
+@keyframes pulse-red-hover {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Offline hover effect */
+.icon-btn.wifi.offline:hover {
+  background-color: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+/* Tooltip positioning for wifi */
+.icon-btn.wifi.tooltip::after {
+  top: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.userCommonMenuBar-main {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #f9f9f9;
+}
+
+/* Container */
+.user-common-menubar-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    /* box-shadow: 0 2px 2px rgba(99, 99, 99, 0.08); */
+}
+
+/* Side menu - Scrollable Version */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 270px;
+  max-height: calc(100vh - 80px); 
+  border-radius: 20px;
+  background: #fff;
+  transition: left 0.3s ease;
+  z-index: 2000000;
+  margin-top: 10px;
+  margin-left: 10px;
+  overflow-y: auto;      /* Vertical scroll when needed */
+  overflow-x: hidden;    /* No horizontal scroll */
+  scrollbar-width: thin; /* Firefox scrollbar width */
+  scrollbar-color: rgba(46, 81, 238, 0.3) transparent; /* Firefox scrollbar color */
+}
+
+/* Cashier mode override */
+.side-menu.cashier-mode {
+  /* height: calc(100vh - 150px) !important;
+  max-height: calc(100vh - 217px); */
+  height: auto;
+}
+
+/* Scrollbar styles for Webkit browsers (Chrome, Safari, Edge) */
+.side-menu::-webkit-scrollbar {
+  width: 1px;  /* ပိုသေးအောင် 1px ထား */
+}
+
+.side-menu::-webkit-scrollbar-track {
+  background: transparent;  /* နောက်ခံလုံးဝဖျောက် */
+  border-radius: 10px;
+}
+
+.side-menu::-webkit-scrollbar-thumb {
+  background: rgba(193, 193, 193, 0.3);  /* ဖျော့ဖျော့လေး */
+  border-radius: 10px;
+}
+
+.side-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 168, 168, 0.5);  /* hover မှာ နည်းနည်းပေါ်အောင် */
+}
+
+.side-menu.open {
+  left: 0;
+  box-shadow: 4px 0 12px rgba(0,0,0,0.15);
+}
+
+/* overlay */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.side-menu-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+  position: sticky;       /* Header ကို အောက်မဆင်းအောင် */
+  top: 0;
+  background: #fff;
+  z-index: 10;
+  border-radius: 20px 20px 0 0;
+}
+
+.side-menu-item {
+  padding: 14px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.side-menu-header span {
+  cursor: pointer;
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;  /* အဝိုင်းပုံဖြစ်အောင် */
+  transition:  0.5s ease
+}
+
+.side-menu-header span:hover {
+  background-color: #e11d48;  /* အနီရောင် background */
+  color: white;  /* အဖြူရောင် X */
+  transform: rotate(90deg);
+}
+.side-menu-body {
+  flex: 1;
+}
+
+.side-menu-item.logout {
+  border-top: 1px solid #eee;
+  color: #e11d48;
+  font-weight: 600;
+  position: sticky;      /* Logout ကို အောက်ဆုံးမှာကပ်ထား */
+  bottom: 0;
+  background: #fff;
+}
+
+.side-menu-item.logout:hover {
+  background: #fee2e2;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.side-menu-item:hover {
+  background: #f5f5f5;
+}
+
+.side-menu-item.active {
+  background: #e8f0ff;
+  /* font-weight: 600; */
+  font-size: 14px;
+  border-left: 4px solid #3b82f6;
+}
+
+
+/* responsive name */
+.name-short { display: none; }
+@media (max-width: 576px) {
+  .name-full { display: none; }
+  .name-short { display: inline; }
+}
+
+/* LEFT */
+.menuBar-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* RIGHT */
+.menuBar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.time {
+    font-size: 13px;
+    padding-left: 10px;
+}
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 130%;
+  left: 10%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 10px; /* 👉 ဒီမှာကွေး */
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+}
+
+.card-cart-container {
+    width: 100%;
+    display: flex;
+}
+.card-container-show{
+    width: 73%;
+    /* background: red; */
+}
+.card-cart-show{
+    width: 27%;
+    display: block;
+    background: rgb(255, 255, 255);
+    margin: 10px 10px 0px 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid #c8dffb;
+    /* background: red; */
+}
+/* Buttons */
+.icon-btn {
+    display: flex;                 /* ⭐ important */
+    align-items: center;           /* ⭐ vertical center */
+    justify-content: center;
+    gap: 6px;
+    background: #ffffff;
+    border: 1px solid #c8dffb;
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+.name-short {
+  display: none;
+}
+/* Normal state */
+.icon-btn img {
+    width: 15px;
+    height: 15px;
+    display: block;
+    filter: brightness(0) saturate(100%) invert(25%);
+    opacity: 1;
+    transition: all 0.2s ease;
+}
+.menuBar-right .pf-btn {
+    padding: 5px 10px 5px 8px;
+}
+.menuBar-right .pf{
+    width: 17px;
+    height: 17px;
+}
+
+/* Hover for all buttons except wifi (wifi has its own hover) */
+.icon-btn:not(.wifi):hover {
+    color: #fff;
+    border: 1px solid #9ac7fd;
+    background: #9ac7fd;
+}
+
+.icon-btn:not(.wifi):hover img {
+    filter: brightness(0) saturate(100%) invert(100%);
+    opacity: 1;
+}
+
+/* Active (click) */
+.icon-btn:active img {
+    filter: brightness(0) saturate(100%) invert(100%);
+}
+
+
+/* User Button */
+.user-btn {
+    padding: 6px 12px;
+}
+
+.user-btn span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #334155;
+}
+
+/* LOGO */
+.menu-logo {
+    width: 100px;
+    display: block;
+}
+
+
+
+/*=============== Category ================*/
+.user-filter-category {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.card-box {
+    display: flex;
+    gap: 14px;
+    padding: 10px;
+}
+
+/* horizontal card */
+.cate-card.horizontal {
+    min-width: 160px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 5px 20px;
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+}
+
+.cate-card.horizontal:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+}
+
+/* image container */
+.cate-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: #f1f5f9;
+    overflow: hidden;          /* အရေးကြီး */
+    flex-shrink: 0;
+}
+.cate-card.horizontal {
+    padding-left: 6px;
+}
+
+/* image full fill */
+.cate-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* box အပြည့်ပြ */
+    display: block;
+}
+
+/* text */
+.cate-text span {
+    font-size: 14px;
+    color: #000000;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cate-text p {
+    font-size: 12px;
+    color: #242424;
+    margin-top: 4px;
+}
+
+/* Chrome / Edge / Safari */
+.user-filter-category::-webkit-scrollbar {
+    height: 0px;          /* သေးစေ */
+}
+
+.user-filter-category::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.user-filter-category::-webkit-scrollbar-thumb {
+    background: #e2e2e2;
+    border-radius: 10px;
+}
+
+.user-filter-category::-webkit-scrollbar-thumb:hover {
+    background: #d1d1d1;
+}
+
+/*===========searchbar==============*/
+.user-search-category {
+    width: 100%;
+    margin-top: -9px;
+}
+.card-box select {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid #cad2dc;
+}
+.card-box .searchbar{
+    width: 100%;
+    padding: 5px 30px 5px 35px;
+    border-radius: 20px;
+    border: 1px solid #c3cddb;
+}
+
+.card-box label{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    min-width: 108px;
+}
+
+.card-box input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #a6caf7;
+    margin-right: 5px;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+.search-btn {
+    position: absolute;
+    border: none;
+    margin-left: 10px;
+    margin-top: 7px;
+    align-items: center;
+    text-align: center;
+    background: none;
+}
+.search-btn-icon {
+    background: none;
+    width: 17px;
+    height: 17px;
+    filter: brightness(0) saturate(100%) invert(25%);
+    opacity: 0.6;
+}
+.card-box .noti-icon {
+    background: none;
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) saturate(100%) invert(25%);
+    opacity: 0.6;
+}
+
+/* Desktop Barcode Input Wrapper - Fixed width to prevent layout shift */
+.auto-barcode {
+  background-color: #f5f7fa;
+  padding: 0px 0;
+  margin: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -20px;
+  max-width: 300px;
+  width: 300px;
+}
+
+/* Desktop Barcode Input Wrapper */
+.barcode-desktop-wrapper {
+  flex: 1;
+  max-width: 300px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.barcode-desktop-wrapper.show {
+  opacity: 1;
+  transform: scaleX(1);
+  pointer-events: auto;
+}
+
+/* Desktop Barcode Input Field - No Border, No Focus Effect */
+.barcode-input-field {
+  width: 100%;
+  padding: 10px 18px;
+  border: none !important;
+  font-size: 14px;
+  outline: none !important;
+  font-family: monospace;
+  letter-spacing: 1px;
+  background: #f5f7fa !important;
+  transition: none;
+  box-sizing: border-box;
+  text-align: center !important;
+  border-radius: 10px;
+  color: #334155 !important;
+  box-shadow: none !important;
+  
+  /* Remove all browser default focus styles */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.barcode-input-field:focus,
+.barcode-input-field:active,
+.barcode-input-field:focus-visible,
+.barcode-input-field:focus-within {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: #f5f7fa !important;
+  text-align: center !important;
+  color: #334155 !important;
+  
+  /* Remove any ring or glow */
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Firefox specific */
+.barcode-input-field:-moz-focusring {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.barcode-input-field::placeholder {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+/* Fixed time width to prevent layout shift */
+.time {
+  font-size: 13px;
+  padding-left: 10px;
+  min-width: 85px;
+  display: inline-block;
+  font-family: monospace;
+}
+
+/* Mobile Barcode Modal */
+.mobile-barcode-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.mobile-barcode-modal-content {
+  background: white;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 350px;
+  padding: 20px;
+  animation: slideUp 0.3s ease;
+}
+
+.mobile-barcode-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-barcode-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.mobile-barcode-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.mobile-barcode-close:hover {
+  background: #f0f0f0;
+  color: #e11d48;
+}
+
+.mobile-barcode-input {
+  width: 100%;
+  padding: 12px 15px;
+  /* border: 1px solid #3b82f6; */
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  font-family: monospace;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.mobile-barcode-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+.mobile-barcode-submit {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobile-barcode-submit:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hide desktop barcode on mobile */
+@media (max-width: 768px) {
+  .barcode-desktop-wrapper {
+    display: none;
+  }
+  
+  .time {
+    min-width: 75px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 576px) {
+  .time {
+    min-width: 70px;
+    font-size: 10px;
+  }
+  
+  .mobile-barcode-modal-content {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  .mobile-barcode-input {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  
+  .mobile-barcode-submit {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+/* Barcode Button Styles - Like Wifi Button */
+.icon-btn.barcode-btn {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Active state - Blue with pulsing animation */
+.icon-btn.barcode-btn.active {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.icon-btn.barcode-btn.active img {
+  filter: brightness(0) saturate(100%) invert(37%) sepia(93%) saturate(1352%) hue-rotate(199deg) brightness(91%) contrast(96%);
+}
+
+/* Pulsing animation for barcode button when active */
+.icon-btn.barcode-btn.active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgba(59, 130, 246, 0.3);
+  animation: pulse-blue 2s infinite;
+  z-index: 0;
+}
+
+@keyframes pulse-blue {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Hover effect for barcode button */
+.icon-btn.barcode-btn:hover:not(.active) {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.icon-btn.barcode-btn:hover:not(.active) img {
+  filter: brightness(0) saturate(100%) invert(37%) sepia(93%) saturate(1352%) hue-rotate(199deg) brightness(91%) contrast(96%);
+}
+
+/* Active hover effect */
+.icon-btn.barcode-btn.active:hover {
+  background-color: #3b82f6;
+  border-color: #2563eb;
+}
+
+.icon-btn.barcode-btn.active:hover img {
+  filter: brightness(0) saturate(100%) invert(100%);
+}
+
+.icon-btn.barcode-btn.active:hover::before {
+  background-color: rgba(255, 255, 255, 0.3);
+  animation: pulse-blue-hover 1.5s infinite;
+}
+
+@keyframes pulse-blue-hover {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Desktop Barcode Input Wrapper */
+.barcode-desktop-wrapper {
+  flex: 1;
+  max-width: 280px;
+  margin: 0 15px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+.barcode-desktop-wrapper.show {
+  opacity: 1;
+  transform: scaleX(1);
+  pointer-events: auto;
+}
+
+.barcode-input-field {
+  width: 100%;
+  padding: 8px 15px;
+  border: 1px solid #3b82f6;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  font-family: monospace;
+  letter-spacing: 1px;
+  background: white;
+  box-sizing: border-box;
+}
+
+.barcode-input-field:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+/* Fixed time width */
+.time {
+  font-size: 13px;
+  padding-left: 10px;
+  min-width: 85px;
+  display: inline-block;
+  font-family: monospace;
+}
+
+/* Mobile Barcode Modal */
+.mobile-barcode-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.mobile-barcode-modal-content {
+  background: white;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 350px;
+  padding: 20px;
+  animation: slideUp 0.3s ease;
+}
+
+.mobile-barcode-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-barcode-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.mobile-barcode-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.mobile-barcode-close:hover {
+  background: #f0f0f0;
+  color: #e11d48;
+}
+
+.mobile-barcode-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #3b82f6;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  font-family: monospace;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+}
+
+.mobile-barcode-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hide desktop barcode on mobile */
+@media (max-width: 768px) {
+  .menuBar-right label{
+    display: none;
+  }
+  .barcode-desktop-wrapper {
+    display: none;
+  }
+  
+  .time {
+    min-width: 75px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 576px) {
+    .menuBar-right label{
+    display: none;
+  }
+  .time {
+    min-width: 70px;
+    font-size: 10px;
+  }
+  
+  .mobile-barcode-modal-content {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  .mobile-barcode-input {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+@media (max-width: 480px) {
+
+  /* ===== Container ===== */
+  .user-common-menubar-container {
+    padding: 6px 10px;
+    gap: 6px;
+    flex-wrap: nowrap;
+    overflow: visible;
+    align-items: center;
+    height: 44px;
+    min-height: 44px;
+    max-height: 44px;
+  }
+
+  /* ===== Left Section ===== */
+  .menuBar-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    order: 1;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 100%;
+  }
+
+  /* ✅ Menu Icon - လေးထောင့်ကျ */
+  .menuBar-left > .icon-btn {
+    order: 1;
+    padding: 0;
+    border-radius: 8px;
+    flex-shrink: 0;
+    margin: 0;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    max-width: 28px;
+    min-height: 28px;
+    max-height: 28px;
+    box-sizing: border-box;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menuBar-left > .icon-btn img {
+    width: 16px;
+    height: 16px;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* ✅ Logo */
+  .menuBar-left > .menu-logo {
+    order: 2;
+    width: 65px;
+    height: auto;
+    max-height: 26px;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin: 0;
+    align-self: center;
+  }
+
+  /* ===== Right Section ===== */
+  .menuBar-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 1;
+    min-width: 0;
+    order: 2;
+    justify-content: flex-end;
+    margin-left: auto;
+    flex-wrap: nowrap;
+    height: 100%;
+  }
+
+  /* ✅ Icon Buttons အားလုံး - လေးထောင့်ကျ (28x28) */
+  .menuBar-right .icon-btn:not(.pf-btn) {
+    padding: 0;
+    border-radius: 8px;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    max-width: 28px;
+    min-height: 28px;
+    max-height: 28px;
+    box-sizing: border-box;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menuBar-right .icon-btn:not(.pf-btn) img {
+    width: 13px;
+    height: 13px;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* ===== ✅ User Button - အထူးသီးသန့် (width auto) ===== */
+  .menuBar-right .pf-btn {
+    padding: 0 8px 0 6px;
+    gap: 4px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    
+    /* ✅ width ကို auto ထား — name ပါလို့ */
+    width: auto;
+    min-width: auto;
+    max-width: none;
+    
+    /* ✅ အမြင့်ကို ကျန်တဲ့ icon တွေနဲ့ ညီ */
+    height: 28px;
+    min-height: 28px;
+    max-height: 28px;
+    
+    box-sizing: border-box;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* ✅ name-short အတွက် နေရာ သေချာ ရှိစေ */
+    white-space: nowrap;
+  }
+
+  .menuBar-right .pf-btn .pf {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  .menuBar-right .pf-btn .name-full {
+    display: none;
+  }
+
+  .menuBar-right .pf-btn .name-short {
+    display: inline;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  /* ===== Time ဖျောက် ===== */
+  .menuBar-right .time,
+  .menuBar-right label {
+    display: none !important;
+  }
+
+  /* ===== WiFi ===== */
+  .icon-btn.wifi.online::before,
+  .icon-btn.barcode-btn.active::before {
+    width: 22px;
+    height: 22px;
+  }
+
+  .icon-btn.wifi.offline::after {
+    width: 10px;
+    height: 10px;
+    font-size: 7px;
+    top: -1px;
+    right: -1px;
+  }
+
+  /* ===== Cart Badge ===== */
+  .menuBar-right .icon-btn span {
+    width: 14px !important;
+    height: 14px !important;
+    font-size: 8px !important;
+    top: -4px !important;
+    right: -4px !important;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;   /* ← ဒါ ရှိဖို့ လိုအပ် */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;       /* ← ညာဘက် overflow ဖျောက် */
+  width: 100%;
+}

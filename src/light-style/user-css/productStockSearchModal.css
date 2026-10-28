@@ -1,0 +1,971 @@
+/* ================================================================
+   PRODUCT STOCK SEARCH MODAL - COMPLETE CSS
+   ================================================================ */
+
+/* ===== OVERLAY ===== */
+.pss-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  padding: 20px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== MODAL ===== */
+.pss-modal {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 1000px;
+  /* ✅ HEIGHT ကိုမြှင့်လိုက်ပါ */
+  max-height: 95vh;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  margin: auto;
+  animation: pssSlideIn 0.3s ease;
+}
+
+@keyframes pssSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== HEADER ===== */
+.pss-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  flex-shrink: 0;
+  border-radius: 16px 16px 0 0;
+}
+
+.pss-title {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+.pss-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.pss-close:hover {
+  background: #e0e0e0;
+  color: #333;
+}
+
+/* ===== SEARCH BOX ===== */
+.pss-search-box {
+  padding: 16px 24px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.pss-search-wrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: all 0.2s;
+}
+
+.pss-search-wrap:focus-within {
+  border-color: #007bff;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.pss-search-btn {
+  background: none;
+  border: none;
+  padding: 10px 0 10px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.pss-search-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pss-search-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+}
+
+.pss-search-input {
+  flex: 1;
+  padding: 12px 8px;
+  border: none !important;
+  background: none;
+  font-size: 15px;
+  outline: none !important;
+}
+
+.pss-search-input:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+.pss-search-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pss-clear {
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #666;
+  font-size: 18px;
+}
+
+.pss-clear:hover {
+  color: #212121;
+}
+
+.pss-clear:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pss-submit {
+  padding: 12px 30px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.pss-submit:hover:not(:disabled) {
+  background: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.pss-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== ERROR ===== */
+.pss-error {
+  margin: 12px 24px;
+  padding: 12px 16px;
+  background: #f8d7da;
+  color: #721c24;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.pss-error i {
+  color: #721c24;
+}
+
+/* ===== RESULTS ===== */
+.pss-results {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+  background: #f5f5f5;
+  /* ✅ Results container ကိုလည်းမြှင့်လိုက်ပါ */
+  min-height: 400px;
+  max-height: 60vh;
+}
+
+.pss-results::-webkit-scrollbar {
+  width: 6px;
+}
+
+.pss-results::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.pss-results::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 8px;
+}
+
+.pss-results::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* ===== EMPTY ===== */
+.pss-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* ✅ Empty state ကိုလည်းမြှင့်လိုက်ပါ */
+  height: 350px;
+  color: #666;
+  background: white;
+  border-radius: 8px;
+}
+
+.pss-empty-icon {
+  font-size: 56px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.pss-empty p {
+  font-size: 16px;
+  color: #888;
+  margin: 0;
+}
+
+/* ===== LOADING ===== */
+.pss-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+  color: #666;
+  background: white;
+  border-radius: 8px;
+}
+
+.pss-loading i {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #007bff;
+}
+
+.pss-loading p {
+  font-size: 15px;
+  color: #888;
+  margin: 0;
+}
+
+/* ===== LIST ===== */
+.pss-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===== CARD ===== */
+.pss-card {
+  background: white;
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s;
+}
+
+.pss-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.pss-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.pss-card-title {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+
+.pss-card-codes {
+  display: flex;
+  gap: 8px;
+}
+
+.pss-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.pss-badge.sku {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.pss-badge.barcode {
+  background: #f5e5e6;
+  color: #991939;
+}
+
+/* ===== BRANCHES ===== */
+.pss-branches-title {
+  margin: 0 0 10px 0;
+  font-size: 15px;
+  color: #555;
+  font-weight: 500;
+}
+
+.pss-branch {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 14px 16px;
+  border-left: 4px solid #007bff;
+  margin-bottom: 10px;
+  transition: all 0.2s;
+}
+
+.pss-branch:last-child {
+  margin-bottom: 0;
+}
+
+.pss-branch:hover {
+  background: #f0f7ff;
+}
+
+.pss-branch-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pss-branch-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pss-branch-name {
+  font-size: 15px;
+  color: #333;
+}
+
+.pss-stock-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pss-stock-badge.in {
+  background: #d4edda;
+  color: #155724;
+}
+
+.pss-stock-badge.out {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.pss-branch-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.pss-branch-address i {
+  width: 18px;
+  color: #007bff;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.pss-branch-address span {
+  flex: 1;
+  word-break: break-word;
+}
+
+.pss-branch-contact {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pss-branch-price {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #28a745;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.pss-branch-price i {
+  color: #28a745;
+}
+
+/* ===== PAGINATION ===== */
+.pss-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.pss-page-info {
+  color: #4a5568;
+  font-size: 14px;
+}
+
+.pss-page-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.pss-page-btn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pss-page-btn:hover:not(:disabled) {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.pss-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pss-page-input-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pss-page-input {
+  width: 50px;
+  height: 34px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a202c;
+  transition: all 0.2s;
+}
+
+.pss-page-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.pss-page-input:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.pss-page-total {
+  color: #718096;
+  font-size: 14px;
+}
+
+/* ===== FOOTER ===== */
+.pss-footer {
+  padding: 14px 24px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-radius: 0 0 16px 16px;
+}
+
+.pss-result-count {
+  color: #666;
+  font-size: 14px;
+}
+
+.pss-items-per-page {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pss-select {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  font-size: 14px;
+}
+
+.pss-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pss-close-footer {
+  padding: 8px 24px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pss-close-footer:hover {
+  background: #545b62;
+}
+
+/* ================================================================ */
+/* ===== RESPONSIVE ===== */
+/* ================================================================ */
+
+/* ===== Tablet ===== */
+@media (max-width: 992px) {
+  .pss-modal {
+    max-height: 92vh;
+    min-height: 70vh;
+  }
+
+  .pss-results {
+    max-height: 50vh;
+    min-height: 300px;
+  }
+
+  .pss-empty {
+    height: 280px;
+  }
+
+  .pss-loading {
+    height: 280px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .pss-overlay {
+    padding: 10px;
+    align-items: flex-end;
+  }
+
+  .pss-modal {
+    max-height: 95vh;
+    min-height: 70vh;
+    border-radius: 16px;
+  }
+
+  .pss-header {
+    padding: 14px 18px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .pss-title {
+    font-size: 17px;
+  }
+
+  .pss-close {
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .pss-search-box {
+    flex-direction: column;
+    padding: 14px 18px;
+    gap: 10px;
+  }
+
+  .pss-search-wrap {
+    width: 100%;
+  }
+
+  .pss-search-input {
+    font-size: 14px;
+    padding: 10px 8px;
+  }
+
+  .pss-search-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .pss-submit {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .pss-results {
+    padding: 14px 16px;
+    max-height: 45vh;
+    min-height: 250px;
+  }
+
+  .pss-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .pss-card-title {
+    font-size: 16px;
+  }
+
+  .pss-card-codes {
+    flex-wrap: wrap;
+  }
+
+  .pss-badge {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .pss-branch {
+    padding: 12px 14px;
+  }
+
+  .pss-branch-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .pss-branch-name {
+    font-size: 14px;
+  }
+
+  .pss-stock-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+
+  .pss-branch-address {
+    font-size: 12px;
+  }
+
+  .pss-branch-contact {
+    gap: 12px;
+  }
+
+  .pss-branch-price {
+    font-size: 13px;
+  }
+
+  .pss-pagination {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .pss-page-controls {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .pss-page-input {
+    width: 44px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .pss-page-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .pss-footer {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  .pss-result-count {
+    font-size: 13px;
+  }
+
+  .pss-items-per-page {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pss-close-footer {
+    width: 100%;
+    justify-content: center;
+    padding: 8px;
+  }
+
+  .pss-empty {
+    height: 200px;
+  }
+
+  .pss-empty-icon {
+    font-size: 48px;
+  }
+
+  .pss-empty p {
+    font-size: 14px;
+  }
+
+  .pss-loading {
+    height: 200px;
+  }
+
+  .pss-loading i {
+    font-size: 28px;
+  }
+
+  .pss-error {
+    margin: 10px 16px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Small Mobile ===== */
+@media (max-width: 480px) {
+  .pss-overlay {
+    padding: 6px;
+  }
+
+  .pss-modal {
+    max-height: 98vh;
+    min-height: 60vh;
+    border-radius: 12px;
+  }
+
+  .pss-header {
+    padding: 12px 14px;
+  }
+
+  .pss-title {
+    font-size: 15px;
+  }
+
+  .pss-close {
+    font-size: 18px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .pss-search-box {
+    padding: 10px 14px;
+    gap: 8px;
+  }
+
+  .pss-search-input {
+    font-size: 13px;
+    padding: 8px 6px;
+  }
+
+  .pss-search-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 1;
+  }
+
+  .pss-submit {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .pss-results {
+    padding: 10px 12px;
+    max-height: 40vh;
+    min-height: 200px;
+  }
+
+  .pss-card {
+    padding: 14px;
+  }
+
+  .pss-card-title {
+    font-size: 14px;
+  }
+
+  .pss-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .pss-branch {
+    padding: 10px 12px;
+  }
+
+  .pss-branch-name {
+    font-size: 13px;
+  }
+
+  .pss-stock-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+
+  .pss-branch-address {
+    font-size: 12px;
+  }
+
+  .pss-branch-price {
+    font-size: 12px;
+  }
+
+  .pss-page-input {
+    width: 38px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .pss-page-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .pss-close-footer {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .pss-empty {
+    height: 150px;
+  }
+
+  .pss-empty-icon {
+    font-size: 36px;
+  }
+
+  .pss-empty p {
+    font-size: 13px;
+  }
+
+  .pss-loading {
+    height: 150px;
+  }
+
+  .pss-loading i {
+    font-size: 24px;
+  }
+
+  .pss-loading p {
+    font-size: 13px;
+  }
+
+  .pss-result-count {
+    font-size: 12px;
+  }
+
+  .pss-error {
+    margin: 8px 12px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+/* ===== SEARCH BUTTON ===== */
+.pss-search-btn {
+  background: none;
+  border: none;
+  padding: 10px 0 10px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 18px;
+  transition: all 0.2s;
+}
+
+.pss-search-btn:hover:not(:disabled) {
+  color: #007bff;
+}
+
+.pss-search-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== SEARCH ICON ===== */
+.pss-search-icon {
+  font-size: 18px;
+  color: #999;
+  transition: all 0.2s;
+}
+
+.pss-search-wrap:focus-within .pss-search-icon {
+  color: #007bff;
+}
+
+/* ===== SEARCH INPUT (padding ကိုပြင်လိုက်ပါ) ===== */
+.pss-search-input {
+  flex: 1;
+  padding: 12px 8px 12px 4px;
+  border: none !important;
+  background: none;
+  font-size: 15px;
+  outline: none !important;
+}

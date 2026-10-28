@@ -1,0 +1,550 @@
+/* OTP Container */
+.main-main {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.office-otp-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* OTP Card */
+.office-otp-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Header */
+.office-otp-header {
+  text-align: center;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.office-otp-back-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: none;
+  border: none;
+  color: #4f46e5;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.office-otp-back-button:hover {
+  background-color: #f5f3ff;
+}
+
+.office-otp-back-button i {
+  font-size: 12px;
+}
+
+.office-otp-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.office-otp-logo-icon {
+  font-size: 32px;
+  color: #7c3aed;
+}
+
+.office-otp-logo-icon i {
+  font-size: 32px;
+}
+
+.office-otp-logo-text {
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.office-otp-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.office-otp-subtitle i {
+  font-size: 14px;
+  color: #7c3aed;
+}
+
+/* Session Info */
+.office-otp-session-info {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  border: 1px solid #ddd6fe;
+}
+
+.office-otp-user-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.office-otp-user-icon {
+  font-size: 24px;
+  background: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  color: #7c3aed;
+}
+
+.office-otp-user-icon i {
+  font-size: 24px;
+}
+
+.office-otp-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.office-otp-username {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.office-otp-username i {
+  font-size: 12px;
+  color: #7c3aed;
+}
+
+.office-otp-device-info {
+  font-size: 13px;
+  color: #7c3aed;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.office-otp-device-info i {
+  font-size: 12px;
+}
+
+/* Alert Styles */
+.office-otp-alert {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.office-otp-alert-error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.office-otp-alert-success {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+}
+
+.office-otp-alert-icon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.office-otp-alert-icon i {
+  font-size: 18px;
+}
+
+.office-otp-alert-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* OTP Form */
+.office-otp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.office-otp-inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.office-otp-instruction {
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.office-otp-instruction i {
+  font-size: 14px;
+  color: #7c3aed;
+}
+
+.office-otp-inputs-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.office-otp-input {
+  width: 56px;
+  height: 64px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #111827;
+  background: white;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.office-otp-input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.office-otp-input:disabled {
+  background-color: #f9fafb;
+  cursor: not-allowed;
+}
+
+.office-otp-input::placeholder {
+  color: #d1d5db;
+}
+
+/* Timer Section */
+.office-otp-timer-section {
+  text-align: center;
+}
+
+.office-otp-timer {
+  font-size: 14px;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.office-otp-timer i {
+  font-size: 14px;
+  color: #7c3aed;
+}
+
+.office-otp-timer-count {
+  font-weight: 600;
+  color: #dc2626;
+  font-feature-settings: "tnum";
+}
+
+.office-otp-resend-button {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.office-otp-resend-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+}
+
+.office-otp-resend-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.office-otp-resend-button-loading {
+  cursor: wait;
+}
+
+.office-otp-resend-button i {
+  font-size: 14px;
+}
+
+/* Verify Button */
+.office-otp-verify-button {
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.office-otp-verify-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+}
+
+.office-otp-verify-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.office-otp-verify-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+}
+
+.office-otp-verify-button-loading {
+  cursor: wait;
+}
+
+.office-otp-verify-button i {
+  font-size: 16px;
+}
+
+/* Spinner */
+.office-otp-spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Footer */
+.office-otp-footer {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.office-otp-footer-text {
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.office-otp-footer-text i {
+  font-size: 12px;
+  color: #7c3aed;
+}
+
+.office-otp-contact-support {
+  background: none;
+  border: none;
+  color: #4f46e5;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.office-otp-contact-support:hover {
+  color: #3730a3;
+  background-color: #f5f3ff;
+}
+
+.office-otp-contact-support i {
+  font-size: 14px;
+}
+
+/* Background Shapes */
+.office-otp-bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%);
+  z-index: 0;
+}
+
+.office-otp-bg-shape-1 {
+  width: 400px;
+  height: 400px;
+  top: -200px;
+  right: -200px;
+}
+
+.office-otp-bg-shape-2 {
+  width: 250px;
+  height: 250px;
+  bottom: -125px;
+  left: -125px;
+}
+
+.office-otp-bg-shape-3 {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: -75px;
+  transform: translateY(-50%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 520px) {
+  .office-otp-container {
+    padding: 16px;
+  }
+  
+  .office-otp-card {
+    padding: 32px 24px;
+  }
+  
+  .office-otp-logo {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .office-otp-logo-text {
+    font-size: 24px;
+  }
+  
+  .office-otp-input {
+    width: 48px;
+    height: 56px;
+    font-size: 20px;
+  }
+  
+  .office-otp-inputs-group {
+    gap: 8px;
+  }
+  
+  .office-otp-back-button {
+    position: relative;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  
+  .office-otp-subtitle {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .office-otp-footer-text {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 380px) {
+  .office-otp-input {
+    width: 42px;
+    height: 50px;
+    font-size: 18px;
+  }
+  
+  .office-otp-inputs-group {
+    gap: 6px;
+  }
+}

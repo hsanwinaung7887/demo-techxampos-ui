@@ -1,0 +1,1049 @@
+/* OwnerAccountPage.css */
+
+:root {
+  --shop-account-primary: #4361ee;
+  --shop-account-primary-light: #eef2ff;
+  --shop-account-secondary: #3a0ca3;
+  --shop-account-success: #4cc9f0;
+  --shop-account-warning: #f8961e;
+  --shop-account-danger: #f72585;
+  --shop-account-dark: #1a1a2e;
+  --shop-account-light: #f8f9fa;
+  --shop-account-gray: #6c757d;
+  --shop-account-gray-light: #e9ecef;
+  --shop-account-border-radius: 12px;
+  --shop-account-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shop-account-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Main container */
+.shop-account-container {
+  background: white;
+  border-radius: var(--shop-account-border-radius);
+  padding: 25px;
+  /* box-shadow: var(--shop-account-shadow); */
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 0px);
+  overflow: hidden;
+}
+
+/* Header styles */
+.shop-management-header {
+  margin-bottom: 20px;
+}
+
+.header-top-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.shop-account-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--shop-account-light);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.shop-account-back-btn:hover {
+  color: var(--shop-account-danger);;
+
+}
+
+.header-center-content {
+  flex: 1;
+}
+
+.header-center-content h1 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--shop-account-light);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-center-content h1 i {
+  color: var(--shop-account-light);
+}
+
+.header-center-content p {
+  margin: 5px 0 0;
+  color: var(--shop-account-light);
+  font-size: 14px;
+}
+
+/* Section Title */
+.shop-account-section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--shop-account-dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--shop-account-gray-light);
+}
+
+.shop-account-section-title i {
+  color: var(--shop-account-primary);
+  font-size: 24px;
+}
+
+/* History Button */
+.shop-account-history-btn {
+  background-color: white;
+  border: 1px solid var(--shop-account-primary);
+  color: var(--shop-account-primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.shop-account-history-btn i {
+  color: var(--shop-account-primary);
+  transition: color 0.3s;
+}
+
+.shop-account-history-btn:hover,
+.shop-account-history-btn:active {
+  background-color: var(--shop-account-primary);
+  border-color: var(--shop-account-primary);
+  color: white;
+}
+
+.shop-account-history-btn:hover i,
+.shop-account-history-btn:active i {
+  color: white;
+}
+
+.shop-account-history-btn .fa-history {
+  font-size: 16px;
+}
+
+/* Table Wrapper */
+.shop-account-table-wrapper {
+  overflow-y: auto;
+  max-height: calc(100vh - 250px);
+  border-radius: 8px;
+  border: 1px solid var(--shop-account-gray-light);
+  background-color: white;
+}
+
+.shop-account-table {
+  min-width: 1000px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shop-account-table thead {
+  background-color: var(--shop-account-light);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.shop-account-table th {
+  padding: 16px 12px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--shop-account-dark);
+  border-bottom: 2px solid var(--shop-account-gray-light);
+  white-space: nowrap;
+}
+
+.shop-account-table td {
+  padding: 20px 12px;
+  text-align: left;
+  font-size: 14px;
+  color: var(--shop-account-dark);
+  border-bottom: 1px solid var(--shop-account-gray-light);
+  vertical-align: middle;
+}
+
+.shop-account-table tbody tr:hover {
+  background-color: var(--shop-account-light);
+}
+
+/* Created Date */
+.shop-account-created {
+  font-size: 11px;
+  color: var(--shop-account-gray);
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Password Display */
+.password-display {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.password-hint {
+  font-size: 11px;
+  color: var(--shop-account-gray);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Contact Cell */
+.shop-account-contact-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shop-account-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.shop-account-contact-icon {
+  color: var(--shop-account-primary);
+  font-size: 12px;
+  width: 16px;
+  text-align: center;
+}
+
+.shop-account-contact-text {
+  font-size: 13px;
+  color: var(--shop-account-dark);
+  word-break: break-all;
+}
+
+.shop-account-contact-item:nth-child(1) .shop-account-contact-icon {
+  color: var(--shop-account-primary);
+}
+
+.shop-account-contact-item:nth-child(2) .shop-account-contact-icon {
+  color: var(--shop-account-success);
+}
+
+/* Role Cell */
+.shop-account-role-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shop-account-role-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+  min-width: 100px;
+}
+
+.role-super_admin {
+  background-color: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.shop-account-role-desc {
+  font-size: 11px;
+  color: var(--shop-account-gray);
+  font-style: italic;
+}
+
+/* Status Badge */
+.shop-account-status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;
+}
+
+.status-active {
+  background-color: rgba(76, 201, 240, 0.1);
+  color: var(--shop-account-success);
+  border: 1px solid rgba(76, 201, 240, 0.3);
+}
+
+.status-disabled {
+  background-color: rgba(247, 37, 133, 0.1);
+  color: var(--shop-account-danger);
+  border: 1px solid rgba(247, 37, 133, 0.3);
+}
+
+/* Action Buttons Container */
+.shop-account-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 150px;
+}
+
+/* Edit Info Button */
+.shop-account-edit-btn {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  white-space: nowrap;
+  justify-content: center;
+}
+
+.shop-account-edit-btn:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: var(--shop-account-shadow);
+}
+
+/* Change Password Button */
+.shop-account-change-password-btn {
+  background-color: var(--shop-account-primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  white-space: nowrap;
+  justify-content: center;
+}
+
+.shop-account-change-password-btn:hover {
+  background-color: var(--shop-account-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shop-account-shadow);
+}
+
+/* Modal Styles */
+.shop-account-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+  padding: 20px;
+}
+
+.shop-account-modal-content {
+  background-color: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shop-account-shadow-hover);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shop-account-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 1px solid var(--shop-account-gray-light);
+  background-color: var(--shop-account-light);
+  border-radius: 12px 12px 0 0;
+}
+
+.shop-account-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--shop-account-dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.shop-account-modal-header h3 i {
+  color: var(--shop-account-primary);
+}
+
+.shop-account-modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--shop-account-gray);
+  cursor: pointer;
+  padding: 5px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.shop-account-modal-close:hover {
+  background-color: var(--shop-account-gray-light);
+  color: var(--shop-account-danger);
+}
+
+.shop-account-modal-body {
+  padding: 25px;
+}
+.shop-account-history-stats{
+  margin-bottom: 10px;
+  display: flex;
+  gap: 50px;
+  /* justify-content: space-between; */
+}
+
+.stat-item{
+  font-size: 14px;
+  font-weight: normal;
+  padding: 2px;
+}
+.stat-label-final{
+  font-weight: bold;
+}
+.stat-value-final{
+  font-weight: bold;
+}
+.shop-account-modal-footer {
+  padding: 20px 25px;
+  border-top: 1px solid var(--shop-account-gray-light);
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+/* Form Styles */
+.shop-account-form-group {
+  margin-bottom: 20px;
+}
+
+.shop-account-form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.shop-account-form-row .shop-account-form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.shop-account-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--shop-account-dark);
+  font-size: 14px;
+}
+
+.shop-account-form-group label.shop-account-required::after {
+  content: " *";
+  color: var(--shop-account-danger);
+}
+
+.shop-account-form-group input,
+.shop-account-form-group textarea,
+.shop-account-form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--shop-account-gray-light);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--shop-account-dark);
+  transition: all 0.3s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.shop-account-form-group input:focus,
+.shop-account-form-group textarea:focus,
+.shop-account-form-group select:focus {
+  outline: none;
+  border-color: var(--shop-account-primary);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+.shop-account-form-group input:disabled,
+.disabled-input {
+  background-color: var(--shop-account-gray-light);
+  color: var(--shop-account-gray);
+  cursor: not-allowed;
+}
+
+/* Form Section Divider */
+.form-section-divider {
+  margin: 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e5e7eb;
+  position: relative;
+}
+
+.form-section-divider span {
+  background-color: white;
+  padding: 0 10px;
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Form Help Text */
+.form-help-text {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Forget Password Link */
+.forget-password-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--shop-account-primary);
+  font-size: 14px;
+  margin-top: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.forget-password-link:hover {
+  color: var(--shop-account-secondary);
+  text-decoration: underline;
+}
+
+.forget-password-link i {
+  font-size: 16px;
+}
+
+/* Modal Buttons */
+.shop-account-btn-cancel {
+  padding: 12px 25px;
+  background-color: var(--shop-account-gray-light);
+  color: var(--shop-account-dark);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.shop-account-btn-cancel:hover {
+  background-color: #dee2e6;
+}
+
+.shop-account-btn-submit {
+  padding: 12px 25px;
+  background-color: var(--shop-account-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.shop-account-btn-submit:hover:not(:disabled) {
+  background-color: var(--shop-account-secondary);
+  transform: translateY(-2px);
+}
+
+.shop-account-btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* History List Styles */
+.shop-account-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.shop-account-history-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background-color: var(--shop-account-light);
+  border-radius: 8px;
+  border-left: 3px solid var(--shop-account-primary);
+  transition: all 0.3s;
+}
+
+.shop-account-history-item:hover {
+  box-shadow: var(--shop-account-shadow);
+}
+
+.shop-account-history-icon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(67, 97, 238, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--shop-account-primary);
+}
+
+.shop-account-history-icon i {
+  font-size: 18px;
+}
+
+.shop-account-history-content {
+  flex: 1;
+}
+
+.shop-account-history-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--shop-account-dark);
+}
+
+.shop-account-history-status {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.shop-account-history-status.status-success {
+  background-color: rgba(76, 201, 240, 0.1);
+  color: var(--shop-account-success);
+  border: 1px solid rgba(76, 201, 240, 0.3);
+}
+
+.shop-account-history-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 12px;
+  color: var(--shop-account-gray);
+}
+
+.shop-account-history-details span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.shop-account-history-details i {
+  font-size: 11px;
+  color: var(--shop-account-primary);
+}
+
+.shop-account-history-footer {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--shop-account-light);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--shop-account-gray);
+  margin-top: 15px;
+}
+
+/* Pagination */
+.shop-account-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0 10px;
+}
+
+.shop-account-page-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--shop-account-gray-light);
+  background-color: white;
+  color: var(--shop-account-dark);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.shop-account-page-btn:hover:not(:disabled) {
+  background-color: var(--shop-account-primary);
+  color: white;
+  border-color: var(--shop-account-primary);
+}
+
+.shop-account-page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.shop-account-page-info {
+  padding: 0 15px;
+  font-weight: 600;
+  color: var(--shop-account-dark);
+}
+
+/* Security Notice */
+.shop-account-security-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  margin-top: 20px;
+  background-color: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 8px;
+  color: #9a3412;
+}
+
+.shop-account-security-notice i {
+  font-size: 20px;
+  color: #f97316;
+  margin-top: 2px;
+}
+
+.shop-account-security-notice p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* Scrollbar Styles */
+.shop-account-history-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.shop-account-history-list::-webkit-scrollbar-track {
+  background: var(--shop-account-gray-light);
+  border-radius: 3px;
+}
+
+.shop-account-history-list::-webkit-scrollbar-thumb {
+  background: var(--shop-account-primary);
+  border-radius: 3px;
+}
+
+.shop-account-history-list::-webkit-scrollbar-thumb:hover {
+  background: var(--shop-account-secondary);
+}
+
+/* Remove unnecessary elements */
+.shop-account-tabs-header,
+.shop-account-search-controls,
+.shop-account-add-btn {
+  display: none !important;
+}
+
+/* Network Error Specific */
+.shop-account-connection-error-banner {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 25px;
+  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.user-account-network-error i {
+  font-size: 32px;
+  color: #fca5a5;
+}
+
+.user-account-network-error .error-content {
+  flex: 1;
+}
+
+.user-account-network-error .error-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.user-account-network-error .error-message {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.user-account-network-error button {
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.user-account-network-error button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Multiple Messages Container */
+.user-account-messages-container {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 450px;
+}
+
+/* ===== No Data Styles ===== */
+.shop-account-no-data {
+  text-align: center;
+  padding: 40px !important;
+  background-color: var(--shop-account-light);
+}
+
+.shop-account-no-data-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  color: var(--shop-account-gray);
+}
+
+.shop-account-no-data-content i {
+  font-size: 48px;
+  color: var(--shop-account-gray-light);
+}
+
+.shop-account-no-data-content p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* ===== Network Error Styles (OfficeAccountPage ကအတိုင်း) ===== */
+.user-account-messages-container {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 450px;
+}
+
+.user-account-network-error {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 25px;
+  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: slideInRight 0.3s ease-out;
+}
+
+.user-account-network-error i {
+  font-size: 32px;
+  color: #fca5a5;
+}
+
+.user-account-network-error .error-content {
+  flex: 1;
+}
+
+.user-account-network-error .error-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.user-account-network-error .error-message {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.user-account-network-error button {
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.user-account-network-error button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== Animation ===== */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .user-account-messages-container {
+    top: 20px;
+    right: 20px;
+    left: 20px;
+    max-width: none;
+  }
+  
+  .user-account-network-error {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .user-account-network-error button {
+    width: 100%;
+  }
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .shop-account-container {
+    padding: 15px;
+    height: auto;
+  }
+
+  .shop-account-table-wrapper {
+    max-height: calc(100vh - 200px);
+  }
+
+  .shop-account-table th,
+  .shop-account-table td {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+
+  .shop-account-action-buttons {
+    min-width: 140px;
+  }
+
+  .shop-account-edit-btn,
+  .shop-account-change-password-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .shop-account-modal-content {
+    margin: 10px;
+    max-height: 85vh;
+  }
+
+  .shop-account-modal-body {
+    padding: 20px;
+  }
+
+  .shop-account-form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .shop-account-action-buttons {
+    min-width: auto;
+  }
+  
+  .header-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-account-container {
+    padding: 12px;
+  }
+
+  .shop-account-modal-header {
+    padding: 15px 20px;
+  }
+
+  .shop-account-modal-body {
+    padding: 15px;
+  }
+
+  .shop-account-modal-footer {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .shop-account-btn-cancel,
+  .shop-account-btn-submit {
+    width: 100%;
+    text-align: center;
+  }
+}

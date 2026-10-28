@@ -1,0 +1,319 @@
+
+/* ================================================================
+   MODAL OVERLAY
+   ================================================================ */
+.capital-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+/* ================================================================
+   MODAL CONTENT
+   ================================================================ */
+.capital-modal-content {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+  animation: capitalModalSlideIn 0.3s ease;
+}
+
+@keyframes capitalModalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ================================================================
+   MODAL HEADER
+   ================================================================ */
+.capital-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  border-bottom: 1px solid #e9ecef;
+  background: #f8f9fa;
+  border-radius: 16px 16px 0 0;
+  flex-shrink: 0;
+}
+
+.capital-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1a1a2e;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.capital-modal-header h3 i {
+  color: #10b981;
+}
+
+.capital-modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 5px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.capital-modal-close:hover {
+  background: #e9ecef;
+  color: #ef4444;
+}
+
+/* ================================================================
+   FORM
+   ================================================================ */
+.capital-form {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.capital-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.capital-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.capital-form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.capital-form-group input,
+.capital-form-group select,
+.capital-form-group textarea {
+  padding: 10px 14px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s;
+  font-family: inherit;
+  background-color: white;
+}
+
+.capital-form-group input:focus,
+.capital-form-group select:focus,
+.capital-form-group textarea:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.capital-form-group input:disabled,
+.capital-form-group select:disabled,
+.capital-form-group textarea:disabled {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.capital-form-group textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* ================================================================
+   CLOSED WARNING
+   ================================================================ */
+.capital-form-closed-warning {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #f59e0b;
+}
+
+.capital-form-closed-warning i {
+  color: #f59e0b;
+  font-size: 16px;
+}
+
+/* ================================================================
+   FORM ACTIONS
+   ================================================================ */
+.capital-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e9ecef;
+}
+
+.capital-btn-cancel {
+  padding: 10px 24px;
+  background: #e9ecef;
+  color: #1a1a2e;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.capital-btn-cancel:hover {
+  background: #dee2e6;
+}
+
+.capital-btn-submit {
+  padding: 10px 24px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.capital-btn-submit:hover:not(:disabled) {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+}
+
+.capital-btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 768px) {
+  .capital-modal-overlay {
+    padding: 10px;
+  }
+
+  .capital-modal-content {
+    max-width: 100%;
+    margin: 0;
+    max-height: 95vh;
+    border-radius: 12px;
+  }
+
+  .capital-modal-header {
+    padding: 14px 16px;
+  }
+
+  .capital-modal-header h3 {
+    font-size: 16px;
+  }
+
+  .capital-form {
+    padding: 16px;
+  }
+
+  .capital-form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .capital-form-actions {
+    flex-direction: column;
+  }
+
+  .capital-form-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .capital-btn-cancel,
+  .capital-btn-submit {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .capital-modal-overlay {
+    padding: 6px;
+  }
+
+  .capital-modal-header {
+    padding: 12px 14px;
+  }
+
+  .capital-modal-header h3 {
+    font-size: 15px;
+  }
+
+  .capital-modal-close {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .capital-form {
+    padding: 12px;
+  }
+
+  .capital-form-group label {
+    font-size: 12px;
+  }
+
+  .capital-form-group input,
+  .capital-form-group select,
+  .capital-form-group textarea {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .capital-form-closed-warning {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+}

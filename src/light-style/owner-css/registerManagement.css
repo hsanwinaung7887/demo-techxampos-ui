@@ -1,0 +1,597 @@
+.shop-management-main {
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #fff, #f1f5fe, #fdeaeb);
+    box-sizing: border-box;
+}
+
+.shop-management-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    color: white;
+}
+
+.shop-management-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.shop-management-header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.shop-management-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Left Panel - Shop List */
+.shop-list-panel {
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.panel-header h2 {
+    font-size: 1.4rem;
+    color: #1e293b;
+}
+
+.search-box {
+    position: relative;
+    width: 300px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.shop-list {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.shop-list-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: #f8fafc;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.shop-list-item:hover {
+    background: #eef2ff;
+    transform: translateY(-2px);
+}
+
+.shop-list-item.active {
+    background: #e0e7ff;
+    border-color: #667eea;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+}
+
+.shop-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.shop-list-header h3 {
+    font-size: 1.1rem;
+    color: #1e293b;
+    margin: 0;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-active {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-pending-payment {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-suspended {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.shop-list-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.shop-list-details p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.shop-list-details i {
+    font-size: 0.8rem;
+}
+
+/* Right Panel - Shop Details */
+.shop-details-panel {
+    flex: 2;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.details-container {
+    height: 100%;
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.details-header h2 {
+    font-size: 1.6rem;
+    color: #1e293b;
+    margin: 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit, .btn-payment {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.btn-edit {
+    background: #f0f9ff;
+    color: #0369a1;
+    border: 2px solid #bae6fd;
+}
+
+.btn-payment {
+    background: #f0fdf4;
+    color: #166534;
+    border: 2px solid #bbf7d0;
+}
+
+.btn-edit:hover {
+    background: #e0f2fe;
+}
+
+.btn-payment:hover {
+    background: #dcfce7;
+}
+
+/* Payment Section */
+.payment-section {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.payment-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.payment-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input, .form-group select {
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.btn-confirm {
+    grid-column: span 2;
+    padding: 12px;
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s;
+}
+
+.btn-confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+}
+
+/* Shop Info Grid */
+.shop-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-content h4 {
+    margin: 0 0 5px 0;
+    color: #1e293b;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.info-value {
+    margin: 0;
+    color: #667eea;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.info-sub {
+    margin: 2px 0;
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.info-card select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: white;
+}
+
+/* Contact Section */
+.contact-section {
+    background: #f0f9ff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.contact-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #0369a1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+}
+
+.contact-item i {
+    color: #667eea;
+    font-size: 1rem;
+}
+
+.contact-item span {
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+/* Status Section */
+.status-section {
+    background: #fefce8;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.status-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #92400e;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-status {
+    padding: 10px 20px;
+    border: 2px solid #e2e8f0;
+    background: white;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.btn-status.active {
+    background: #e0e7ff;
+    border-color: #667eea;
+    color: #4f46e5;
+}
+
+.btn-status:hover:not(.btn-delete) {
+    background: #e0e7ff;
+    border-color: #667eea;
+}
+
+.btn-delete {
+    background: #fef2f2;
+    color: #dc2626;
+    border-color: #fecaca;
+}
+
+.btn-delete:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+}
+
+/* Save Section */
+.save-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-save {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+}
+
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* No Selection State */
+.no-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #94a3b8;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.no-selection i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.no-selection h3 {
+    margin: 0 0 10px 0;
+    color: #475569;
+}
+
+.no-selection p {
+    margin: 0;
+    max-width: 300px;
+}
+
+/* Back Section */
+.back-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    background: #475569;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-back:hover {
+    background: #334155;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(71, 85, 105, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .shop-management-container {
+        flex-direction: column;
+    }
+    
+    .payment-form,
+    .shop-info-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .panel-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+    
+    .details-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .action-buttons {
+        justify-content: stretch;
+    }
+    
+    .btn-edit, .btn-payment {
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .shop-list-details {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+    
+    .status-buttons {
+        flex-direction: column;
+    }
+    
+    .shop-management-header h1 {
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,865 @@
+/* User Account UPE Page Styles */
+:root {
+  --user-account-primary: #4361ee;
+  --user-account-primary-light: #eef2ff;
+  --user-account-secondary: #3a0ca3;
+  --user-account-success: #4cc9f0;
+  --user-account-warning: #f8961e;
+  --user-account-danger: #f72585;
+  --user-account-dark: #1a1a2e;
+  --user-account-light: #f8f9fa;
+  --user-account-gray: #6c757d;
+  --user-account-gray-light: #e9ecef;
+  --user-account-border-radius: 12px;
+  --user-account-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --user-account-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Main container */
+.user-account-upe-container {
+  background: white;
+  border-radius: var(--user-account-border-radius);
+  padding: 25px;
+  box-shadow: var(--user-account-shadow);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 50px);
+  overflow: hidden;
+}
+
+/* Section Title */
+.user-account-upe-section-title1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--user-account-dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--user-account-gray-light);
+}
+
+.user-account-upe-section-title1 i {
+  color: var(--user-account-primary);
+  font-size: 24px;
+}
+
+/* Table Wrapper */
+.user-account-upe-table-wrapper {
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+  border-radius: 8px;
+  border: 1px solid var(--user-account-gray-light);
+  background-color: white;
+}
+
+.user-account-upe-table {
+  min-width: 1000px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-account-upe-table thead {
+  background-color: var(--user-account-light);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.user-account-upe-table th {
+  padding: 16px 12px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--user-account-dark);
+  border-bottom: 2px solid var(--user-account-gray-light);
+  white-space: nowrap;
+}
+
+.user-account-upe-table td {
+  padding: 20px 12px;
+  text-align: left;
+  font-size: 14px;
+  color: var(--user-account-dark);
+  border-bottom: 1px solid var(--user-account-gray-light);
+  vertical-align: middle;
+}
+
+.user-account-upe-table tbody tr:hover {
+  background-color: var(--user-account-light);
+}
+
+
+/* Created Date */
+.user-account-upe-created {
+  font-size: 11px;
+  color: var(--user-account-gray);
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.fa-info-circle,.fa-envelope{
+  font-size: 13px;
+  color:var(--user-account-primary)
+}
+.fa-phone{
+  font-size: 13px;
+  color:var(--user-account-success)
+}
+
+/* Password Display */
+.user-account-upe-password-display {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.user-account-upe-password-hint {
+  font-size: 11px;
+  color: var(--user-account-gray);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.user-stat-value{
+  align-items: center;
+  margin-top: -10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.user-account-page-info{
+  font-size: 14px;
+}
+/* Contact Cell */
+.user-account-upe-contact-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.user-account-upe-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-account-upe-contact-icon {
+  color: var(--user-account-primary);
+  font-size: 12px;
+  width: 16px;
+  text-align: center;
+}
+
+.user-account-upe-contact-text {
+  font-size: 13px;
+  color: var(--user-account-dark);
+  word-break: break-all;
+}
+
+.user-account-upe-contact-item:nth-child(1) .user-account-upe-contact-icon {
+  color: var(--user-account-primary);
+}
+
+.user-account-upe-contact-item:nth-child(2) .user-account-upe-contact-icon {
+  color: var(--user-account-success);
+}
+
+/* Role Cell */
+.user-account-upe-role-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.shop-account-contact-item{
+  font-size: 13px;
+}
+.user-account-upe-role-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+  min-width: 100px;
+}
+
+.role-shop_owner {
+  background-color: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.user-account-upe-role-desc {
+  font-size: 11px;
+  color: var(--user-account-gray);
+  font-style: italic;
+}
+
+
+
+/* Status Badge */
+.user-account-upe-status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;
+}
+
+.user-account-upe-status-badge.status-active {
+  background-color: rgba(76, 201, 240, 0.1);
+  color: var(--user-account-success);
+  border: 1px solid rgba(76, 201, 240, 0.3);
+}
+
+.user-account-upe-last-login {
+  font-size: 11px;
+  color: var(--user-account-gray);
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Action Buttons */
+.user-account-upe-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 160px;
+}
+
+.user-account-upe-edit-btn {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  white-space: nowrap;
+  justify-content: center;
+}
+
+.user-account-upe-edit-btn:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: var(--user-account-shadow);
+}
+
+.user-account-upe-change-password-btn {
+  background-color: var(--user-account-primary);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  white-space: nowrap;
+  justify-content: center;
+}
+
+.user-account-upe-change-password-btn:hover {
+  background-color: var(--user-account-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--user-account-shadow);
+}
+
+/* Modal Styles */
+.user-account-upe-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+  padding: 20px;
+}
+
+.user-account-upe-modal-content {
+  background-color: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--user-account-shadow-hover);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-account-upe-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 1px solid var(--user-account-gray-light);
+  background-color: var(--user-account-light);
+  border-radius: 12px 12px 0 0;
+}
+
+.user-account-upe-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--user-account-dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-account-upe-modal-header h3 i {
+  color: var(--user-account-primary);
+}
+
+.user-account-upe-modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--user-account-gray);
+  cursor: pointer;
+  padding: 5px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.user-account-upe-modal-close:hover {
+  background-color: var(--user-account-gray-light);
+  color: var(--user-account-danger);
+}
+
+.user-account-upe-modal-body {
+  padding: 25px;
+}
+
+.user-account-upe-modal-footer {
+  padding: 20px 25px;
+  border-top: 1px solid var(--user-account-gray-light);
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+/* Form Styles */
+.user-account-upe-form-group {
+  margin-bottom: 20px;
+}
+
+.user-account-upe-form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.user-account-upe-form-row .user-account-upe-form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.user-account-upe-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--user-account-dark);
+  font-size: 14px;
+}
+
+.user-account-upe-form-group label.user-account-upe-required::after {
+  content: " *";
+  color: var(--user-account-danger);
+}
+
+.user-account-upe-form-group input,
+.user-account-upe-form-group textarea,
+.user-account-upe-form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--user-account-gray-light);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--user-account-dark);
+  transition: all 0.3s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.user-account-upe-form-group input:focus,
+.user-account-upe-form-group textarea:focus,
+.user-account-upe-form-group select:focus {
+  outline: none;
+  border-color: var(--user-account-primary);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+.user-account-upe-form-group input:disabled {
+  background-color: var(--user-account-gray-light);
+  color: var(--user-account-gray);
+  cursor: not-allowed;
+}
+
+/* Form Section Divider */
+.user-account-upe-form-section-divider {
+  margin: 25px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e5e7eb;
+  position: relative;
+}
+
+.user-account-upe-form-section-divider span {
+  background-color: white;
+  padding: 0 10px;
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Form Help Text */
+.user-account-upe-form-help-text {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Forget Password Link */
+.user-account-upe-forget-password-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--user-account-primary);
+  font-size: 14px;
+  margin-top: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.user-account-upe-forget-password-link:hover {
+  color: var(--user-account-secondary);
+  text-decoration: underline;
+}
+
+.user-account-upe-forget-password-link i {
+  font-size: 16px;
+}
+
+/* Modal Buttons */
+.user-account-upe-btn-cancel {
+  padding: 12px 25px;
+  background-color: var(--user-account-gray-light);
+  color: var(--user-account-dark);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.user-account-upe-btn-cancel:hover {
+  background-color: #dee2e6;
+}
+
+.user-account-upe-btn-submit {
+  padding: 12px 25px;
+  background-color: var(--user-account-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.user-account-upe-btn-submit:hover:not(:disabled) {
+  background-color: var(--user-account-secondary);
+  transform: translateY(-2px);
+}
+
+.user-account-upe-btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* Add these styles to your existing CSS */
+
+/* Language Toggle */
+.user-account-upe-language-toggle {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.user-account-upe-lang-btn {
+  padding: 6px 12px;
+  border: 1px solid var(--user-account-gray-light);
+  background-color: white;
+  color: var(--user-account-gray);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.user-account-upe-lang-btn:hover {
+  border-color: var(--user-account-primary);
+  color: var(--user-account-primary);
+}
+
+.user-account-upe-lang-btn.active {
+  background-color: var(--user-account-primary);
+  color: white;
+  border-color: var(--user-account-primary);
+}
+
+/* Section Title with History Button */
+.user-account-upe-section-title1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--user-account-gray-light);
+}
+
+.user-account-upe-section-title1 i {
+  color: var(--user-account-primary);
+  font-size: 24px;
+}
+
+.user-account-upe-history-btn {
+  background-color: white;
+  border: 1px solid var(--user-account-primary);
+  color: var(--user-account-primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.user-account-upe-history-btn:hover {
+  background-color: var(--user-account-primary);
+  color: white;
+}
+.user-account-upe-history-btn .fa-history{
+  font-size: 16px;
+}
+/* History Modal Styles */
+.user-account-upe-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.user-account-upe-history-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background-color: var(--user-account-light);
+  border-radius: 8px;
+  border-left: 3px solid var(--user-account-primary);
+  transition: all 0.3s;
+}
+
+.user-account-upe-history-item:hover {
+  box-shadow: var(--user-account-shadow);
+}
+
+.user-account-upe-history-icon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(67, 97, 238, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--user-account-primary);
+}
+
+.user-account-upe-history-icon i {
+  font-size: 18px;
+}
+
+.user-account-upe-history-content {
+  flex: 1;
+}
+
+.user-account-upe-history-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--user-account-dark);
+}
+
+.user-account-upe-history-status {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.user-account-upe-history-status.status-success {
+  background-color: rgba(76, 201, 240, 0.1);
+  color: var(--user-account-success);
+  border: 1px solid rgba(76, 201, 240, 0.3);
+}
+
+.user-account-upe-history-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 12px;
+  color: var(--user-account-gray);
+}
+
+.user-account-upe-history-details span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.user-account-upe-history-details i {
+  font-size: 11px;
+  color: var(--user-account-primary);
+}
+
+.user-account-upe-history-footer {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--user-account-light);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--user-account-gray);
+  margin-top: 15px;
+}
+
+/* Pagination */
+.user-account-upe-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0 10px;
+}
+
+.user-account-upe-page-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--user-account-gray-light);
+  background-color: white;
+  color: var(--user-account-dark);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.user-account-upe-page-btn:hover:not(:disabled) {
+  background-color: var(--user-account-primary);
+  color: white;
+  border-color: var(--user-account-primary);
+}
+
+.user-account-upe-page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.user-account-upe-page-info {
+  padding: 0 15px;
+  font-weight: 600;
+  color: var(--user-account-dark);
+}
+
+/* Scrollbar Styles */
+.user-account-upe-history-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.user-account-upe-history-list::-webkit-scrollbar-track {
+  background: var(--user-account-gray-light);
+  border-radius: 3px;
+}
+
+.user-account-upe-history-list::-webkit-scrollbar-thumb {
+  background: var(--user-account-primary);
+  border-radius: 3px;
+}
+
+.user-account-upe-history-list::-webkit-scrollbar-thumb:hover {
+  background: var(--user-account-secondary);
+}
+
+/* Security Notice */
+.user-account-upe-security-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  margin-top: 20px;
+  background-color: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 8px;
+  color: #9a3412;
+}
+
+.user-account-upe-security-notice i {
+  font-size: 20px;
+  color: #f97316;
+  margin-top: 2px;
+}
+
+.user-account-upe-security-notice p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* Dark mode variant (အကယ်၍ dark mode ရှိရင်) */
+@media (prefers-color-scheme: dark) {
+  .user-account-upe-security-notice {
+    background-color:#fffbfd;
+    border-color: #ffb9b9;
+    color: #ff003c;
+  }
+  
+  .user-account-upe-security-notice i {
+    color: #fb3c69;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .user-account-upe-security-notice {
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  
+  .user-account-upe-security-notice p {
+    font-size: 13px;
+  }
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .user-account-upe-container {
+    padding: 15px;
+    height: auto;
+  }
+
+  .user-account-upe-table-wrapper {
+    max-height: calc(100vh - 180px);
+  }
+
+  .user-account-upe-table th,
+  .user-account-upe-table td {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+
+  .user-account-upe-action-buttons {
+    min-width: 140px;
+  }
+
+  .user-account-upe-edit-btn,
+  .user-account-upe-change-password-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .user-account-upe-modal-content {
+    margin: 10px;
+    max-height: 85vh;
+  }
+
+  .user-account-upe-modal-body {
+    padding: 20px;
+  }
+
+  .user-account-upe-form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-account-upe-container {
+    padding: 12px;
+  }
+
+  .user-account-upe-modal-header {
+    padding: 15px 20px;
+  }
+
+  .user-account-upe-modal-body {
+    padding: 15px;
+  }
+
+  .user-account-upe-modal-footer {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .user-account-upe-btn-cancel,
+  .user-account-upe-btn-submit {
+    width: 100%;
+    text-align: center;
+  }
+}
